@@ -42,14 +42,14 @@ export default ({ history }) => {
   const getdata = () => {
     axios
       .get(
-        "https://api.stockdio.com/data/financial/prices/v1/GetStocksSnapshot?app-key=B9FEE167D40843B49266D65E722FD349&symbols=AAPL;GOOG;TSLA;AMD;AMZN;MRNA;CRM;HD;MSFT;IBM;BABA;FB;NVDA;NFLX;BAC;OIL;USD"
+        "https://api.stockdio.com/data/financial/prices/v1/GetStocksSnapshot?app-key=17485A247567498BBD9AD822B9C89A17&symbols=AAPL;GOOG;TSLA;AMD;AMZN;MRNA;CRM;HD;MSFT;IBM;BABA;FB;NVDA;NFLX;BAC;OIL;USD"
       )
       .then((res) => setvalues(res.data.data.values));
   };
   const getcryptodata = () => {
     axios
       .get(
-        "https://api.stockdio.com/data/financial/prices/v1/GetStocksSnapshot?app-key=B9FEE167D40843B49266D65E722FD349&symbols=ETH"
+        "https://api.stockdio.com/data/financial/prices/v1/GetStocksSnapshot?app-key=17485A247567498BBD9AD822B9C89A17&symbols=ETH"
       )
       .then((res) => setvalues(res.data.data.values));
   };

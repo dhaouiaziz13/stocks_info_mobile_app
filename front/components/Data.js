@@ -60,7 +60,7 @@ export default ({ history, match }) => {
 
     axios
       .get(
-        `https://api.stockdio.com/data/financial/prices/v1/GetHistoricalPrices?app-key=53D2457A26A74D49A998FE3E922A5C23&symbol=${id}&from=2020-08-23&to=2021-08-23`
+        `https://api.stockdio.com/data/financial/prices/v1/GetHistoricalPrices?app-key=17485A247567498BBD9AD822B9C89A17&symbol=${id}&from=2020-08-23&to=2021-08-23`
       )
       .then((res) => {
         // let val = [];
@@ -87,7 +87,7 @@ export default ({ history, match }) => {
       });
     axios
       .get(
-        `https://api.stockdio.com/data/financial/prices/v1/GetStocksSnapshot?app-key=B9FEE167D40843B49266D65E722FD349&symbols=${id}`
+        `https://api.stockdio.com/data/financial/prices/v1/GetStocksSnapshot?app-key=17485A247567498BBD9AD822B9C89A17&symbols=${id}`
       )
       .then((res) => {
         setvalues(res.data.data.values[0]);
@@ -214,6 +214,7 @@ export default ({ history, match }) => {
             </View>
           </View>
         </View>
+        {/* ---------------------------------------------------------------news cards ----------------------------------- */}
         <ScrollView
           contentContainerStyle={{
             justifyContent: "center",
@@ -228,44 +229,54 @@ export default ({ history, match }) => {
           {info ? (
             info.map((item, i) => {
               return (
-                <View
+                <TouchableOpacity
                   key={i}
                   onPress={() => {
-                    Linking.openURL(item.link);
-                  }}
-                  style={{
-                    shadowColor: "#000",
-                    shadowOffset: {
-                      width: 0,
-                      height: 2,
-                    },
-                    shadowOpacity: 0.25,
-                    shadowRadius: 3.84,
-                    elevation: 5,
-                    // height: 60,
-                    padding: 15,
-                    justifyContent: "center",
-                    alignItems: "center",
-                    // fontFamily: "Roboto",
-                    width: "95%",
-                    // backgroundColor: "white",
-                    marginVertical: 5,
-                    borderRadius: 8,
+                    Linking.openURL(item.link).catch((err) =>
+                      console.error("An error occurred", err)
+                    );
                   }}
                 >
-                  <Text
+                  <View
+                    onPress={() => {
+                      Linking.openURL(item.link).catch((err) =>
+                        console.error("An error occurred", err)
+                      );
+                    }}
                     style={{
-                      fontFamily: "Poppins",
-                      fontSize: 17,
-                      color: "grey",
+                      shadowColor: "#000",
+                      shadowOffset: {
+                        width: 0,
+                        height: 2,
+                      },
+                      shadowOpacity: 0.25,
+                      shadowRadius: 3.84,
+                      elevation: 5,
+                      // height: 60,
+                      padding: 15,
+                      justifyContent: "center",
+                      alignItems: "center",
+                      // fontFamily: "Roboto",
+                      width: "95%",
+                      // backgroundColor: "white",
+                      marginVertical: 5,
+                      borderRadius: 8,
                     }}
                   >
-                    {item.title}
-                  </Text>
-                  <Text style={{ fontSize: 12, color: "white" }}>
-                    {item.description}
-                  </Text>
-                </View>
+                    <Text
+                      style={{
+                        fontFamily: "Poppins",
+                        fontSize: 17,
+                        color: "grey",
+                      }}
+                    >
+                      {item.title}
+                    </Text>
+                    <Text style={{ fontSize: 12, color: "white" }}>
+                      {item.description}
+                    </Text>
+                  </View>
+                </TouchableOpacity>
               );
             })
           ) : (
@@ -284,6 +295,7 @@ export default ({ history, match }) => {
     );
   }
 };
+//----------------------------------------styles------------------------------------------
 const styles = StyleSheet.create({
   minidata: {
     // borderColor: "grey",

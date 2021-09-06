@@ -1,7 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
 import * as Font from "expo-font";
-// import img from "./assets/wave.svg";
 import { StyleSheet, Text, View, TextInput } from "react-native";
 import { NativeRouter, Switch, Route } from "react-router-native";
 import AppLoading from "expo-app-loading";
@@ -10,17 +9,6 @@ import Main from "./components/Main";
 import Data from "./components/Data";
 export default function App({ history }) {
   const [fontsLoaded, setFontsLoaded] = useState(false);
-  // const backAction = () => {
-  //   Alert.alert("Hold on!", "Are you sure you want to go back?", [
-  //     {
-  //       text: "Cancel",
-  //       onPress: () => null,
-  //       style: "cancel",
-  //     },
-  //     { text: "YES", onPress: () => BackHandler.exitApp() },
-  //   ]);
-  //   return true;
-  // };
   const getFonts = () =>
     Font.loadAsync({
       Roboto: require("./assets/fonts/RobotoCondensed-Regular.ttf"),
