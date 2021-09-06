@@ -164,57 +164,61 @@ export default ({ history, match }) => {
             marginVertical: 5,
           }}
         >
-          {/* ------------------left part---------------- */}
-          <View style={styles.minidata}>
-            <View style={styles.numbers}>
-              <Text style={styles.font}>open</Text>
-              <Text style={styles.font2}>{values ? values[8] : "0"}</Text>
-            </View>
-            <View style={styles.numbers}>
-              <Text style={styles.font}>close</Text>
-              <Text style={styles.font2}>{values ? values[11] : "0"}</Text>
-            </View>
-            <View style={styles.numbers}>
-              <Text style={styles.font}>high</Text>
-              <Text style={styles.font2}>{values ? values[9] : "0"}</Text>
-            </View>
-          </View>
-          {/* ----------------seperation line---------------- */}
-          <View
-            style={{
-              width: 1,
-              height: "100%",
-              backgroundColor: "grey",
-              marginHorizontal: 5,
-            }}
-          ></View>
-          {/*------------------right part--------------  */}
-          <View style={styles.minidata}>
-            <View style={styles.numbers}>
-              <Text style={styles.font}>low</Text>
-              <Text style={styles.font2}>{values ? values[10] : "0"}</Text>
-            </View>
-            <View style={styles.numbers}>
-              <Text style={styles.font}>volume</Text>
-              <Text style={styles.font2}>{values ? values[13] : "0"}</Text>
-            </View>
-            <View style={styles.numbers}>
-              <Text style={styles.font}>percentage</Text>
-              {values ? (
-                values[15] > 0 ? (
-                  <Text style={{ color: "green" }}>
-                    {values ? values[15] : "0"}%
-                  </Text>
-                ) : (
-                  <Text style={{ color: "red" }}>
-                    {values ? values[15] : "0"}%
-                  </Text>
-                )
-              ) : null}
-            </View>
-          </View>
+          {info ? (
+            <>
+              {/* ------------------left part---------------- */}
+              <View style={styles.minidata}>
+                <View style={styles.numbers}>
+                  <Text style={styles.font}>open</Text>
+                  <Text style={styles.font2}>{values ? values[8] : "0"}</Text>
+                </View>
+                <View style={styles.numbers}>
+                  <Text style={styles.font}>close</Text>
+                  <Text style={styles.font2}>{values ? values[11] : "0"}</Text>
+                </View>
+                <View style={styles.numbers}>
+                  <Text style={styles.font}>high</Text>
+                  <Text style={styles.font2}>{values ? values[9] : "0"}</Text>
+                </View>
+              </View>
+              {/* ----------------seperation line---------------- */}
+              <View
+                style={{
+                  width: 1,
+                  height: "100%",
+                  backgroundColor: "grey",
+                  marginHorizontal: 5,
+                }}
+              ></View>
+              {/*------------------right part--------------  */}
+              <View style={styles.minidata}>
+                <View style={styles.numbers}>
+                  <Text style={styles.font}>low</Text>
+                  <Text style={styles.font2}>{values ? values[10] : "0"}</Text>
+                </View>
+                <View style={styles.numbers}>
+                  <Text style={styles.font}>volume</Text>
+                  <Text style={styles.font2}>{values ? values[13] : "0"}</Text>
+                </View>
+                <View style={styles.numbers}>
+                  <Text style={styles.font}>percentage</Text>
+                  {values ? (
+                    values[15] > 0 ? (
+                      <Text style={{ color: "green" }}>
+                        {values ? values[15] : "0"}%
+                      </Text>
+                    ) : (
+                      <Text style={{ color: "red" }}>
+                        {values ? values[15] : "0"}%
+                      </Text>
+                    )
+                  ) : null}
+                </View>
+              </View>
+            </>
+          ) : null}
         </View>
-        {/* ---------------------------------------------------------------news cards ----------------------------------- */}
+        {/* ---------------------------------news cards ----------------------------------- */}
         <ScrollView
           contentContainerStyle={{
             justifyContent: "center",
