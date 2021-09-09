@@ -7,6 +7,7 @@ import AppLoading from "expo-app-loading";
 import Profile from "./components/Profile";
 import Main from "./components/Main";
 import Data from "./components/Data";
+import Search from './components/Search'
 export default function App({ history }) {
   const [fontsLoaded, setFontsLoaded] = useState(false);
   const getFonts = () =>
@@ -22,6 +23,7 @@ export default function App({ history }) {
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/" component={Main} />
             <Route exact path="/data/:id" component={Data} />
+            <Route exact path path='/search' component={Search}/>
             {/* <Route exact path="/signup" component={Signup} /> */}
             {/* <Route exact path="/main" component={} /> */}
           </Switch>

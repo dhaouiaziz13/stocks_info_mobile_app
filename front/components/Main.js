@@ -46,13 +46,13 @@ export default ({ history }) => {
       )
       .then((res) => setvalues(res.data.data.values));
   };
-  const getcryptodata = () => {
-    axios
-      .get(
-        "https://api.stockdio.com/data/financial/prices/v1/GetStocksSnapshot?app-key=17485A247567498BBD9AD822B9C89A17&symbols=ETH"
-      )
-      .then((res) => setvalues(res.data.data.values));
-  };
+  // const getcryptodata = () => {
+  //   axios
+  //     .get(
+  //       "https://api.stockdio.com/data/financial/prices/v1/GetStocksSnapshot?app-key=17485A247567498BBD9AD822B9C89A17&symbols=ETH"
+  //     )
+  //     .then((res) => setvalues(res.data.data.values));
+  // };
   /////////////////////////////////////
   //--------------------------deleting user-------------------------
   const del = () => {
@@ -164,7 +164,8 @@ export default ({ history }) => {
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => {
-            getcryptodata();
+            // getcryptodata();
+            history.push('/search')
           }}
         >
           <Image
@@ -172,10 +173,10 @@ export default ({ history }) => {
             style={styles.tinyLogo}
           />
         </TouchableOpacity>
-        <Image
+        {/* <Image
           source={require("../assets/profile.png")}
           style={styles.tinyLogo}
-        />
+        /> */}
       </View>
       <StatusBar style="auto" />
     </View>
