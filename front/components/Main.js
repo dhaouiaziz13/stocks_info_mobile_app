@@ -22,21 +22,22 @@ export default ({ history }) => {
 
   /////////////////////////////////////
   useEffect(() => {
-    getdata();
+    let request1 = axios.CancelToken.source();
+
+    axios
+      .get(
+        "https://api.stockdio.com/data/financial/prices/v1/GetStocksSnapshot?app-key=17485A247567498BBD9AD822B9C89A17&symbols=AAPL;GOOG;TSLA;AMD;AMZN;MRNA;CRM;HD;MSFT;IBM;BABA;FB;NVDA;NFLX;BAC;OIL;USD"
+      )
+      .then((res) => setvalues(res.data.data.values));
     //check if user is signed in
     AsyncStorage.getItem("token").then((val) => {
       if (val === null) {
         history.push("/");
       }
     });
-    //fetching user data
-    // AsyncStorage.getItem("userid").then((val) => {
-    //   if (val !== null) {
-    //     axios.post(apiurl + "/api/users/fetch", { id: val }).then((res) => {
-    //       setdata(res.data);
-    //     });
-    //   }
-    // });
+    return () => {
+      request1.cancel("Component got unmounted");
+    };
   }, []);
   /////////////////////////////////////////apidata/////////////////////////////
   const getdata = () => {
@@ -165,7 +166,7 @@ export default ({ history }) => {
         <TouchableOpacity
           onPress={() => {
             // getcryptodata();
-            history.push('/search')
+            history.push("/search");
           }}
         >
           <Image

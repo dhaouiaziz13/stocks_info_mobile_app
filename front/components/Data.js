@@ -53,6 +53,7 @@ export default ({ history, match }) => {
     });
 
   useEffect(() => {
+    let request2 = axios.CancelToken.source();
     const backHandler = BackHandler.addEventListener(
       "hardwareBackPress",
       backAction
@@ -82,8 +83,7 @@ export default ({ history, match }) => {
         if (res) {
           return setinfo(res.data.item);
         }
-        console.log("5let");
-        // console.log("this is infoooo", info);
+        console.log("therdet");
       });
     axios
       .get(
@@ -93,7 +93,10 @@ export default ({ history, match }) => {
         setvalues(res.data.data.values[0]);
         // console.log(values[8]);
       });
-    return () => backHandler.remove();
+    return () => {
+      request2.cancel("unmonted");
+      backHandler.remove();
+    };
   }, []);
 
   /////////////////////////////////////////////////////////////////
