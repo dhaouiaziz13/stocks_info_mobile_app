@@ -61,7 +61,7 @@ export default ({ history, match }) => {
 
     axios
       .get(
-        `https://api.stockdio.com/data/financial/prices/v1/GetHistoricalPrices?app-key=17485A247567498BBD9AD822B9C89A17&symbol=${id}&from=2020-08-23&to=2021-08-23`
+        `https://api.stockdio.com/data/financial/prices/v1/GetHistoricalPrices?app-key=012CD6DC888548268FFBF62BEEC051E9&symbol=${id}&from=2020-08-23&to=2021-08-23`
       )
       .then((res) => {
         // let val = [];
@@ -87,7 +87,7 @@ export default ({ history, match }) => {
       });
     axios
       .get(
-        `https://api.stockdio.com/data/financial/prices/v1/GetStocksSnapshot?app-key=17485A247567498BBD9AD822B9C89A17&symbols=${id}`
+        `https://api.stockdio.com/data/financial/prices/v1/GetStocksSnapshot?app-key=012CD6DC888548268FFBF62BEEC051E9&symbols=${id}`
       )
       .then((res) => {
         setvalues(res.data.data.values[0]);

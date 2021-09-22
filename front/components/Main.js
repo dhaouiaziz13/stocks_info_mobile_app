@@ -26,7 +26,7 @@ export default ({ history }) => {
 
     axios
       .get(
-        "https://api.stockdio.com/data/financial/prices/v1/GetStocksSnapshot?app-key=17485A247567498BBD9AD822B9C89A17&symbols=AAPL;GOOG;TSLA;AMD;AMZN;MRNA;CRM;HD;MSFT;IBM;BABA;FB;NVDA;NFLX;BAC;OIL;USD"
+        "https://api.stockdio.com/data/financial/prices/v1/GetStocksSnapshot?app-key=012CD6DC888548268FFBF62BEEC051E9&symbols=AAPL;GOOG;TSLA;AMD;AMZN;MRNA;CRM;HD;MSFT;IBM;BABA;FB;NVDA;NFLX;BAC;OIL;USD"
       )
       .then((res) => setvalues(res.data.data.values));
     //check if user is signed in
@@ -43,7 +43,7 @@ export default ({ history }) => {
   const getdata = () => {
     axios
       .get(
-        "https://api.stockdio.com/data/financial/prices/v1/GetStocksSnapshot?app-key=17485A247567498BBD9AD822B9C89A17&symbols=AAPL;GOOG;TSLA;AMD;AMZN;MRNA;CRM;HD;MSFT;IBM;BABA;FB;NVDA;NFLX;BAC;OIL;USD"
+        "https://api.stockdio.com/data/financial/prices/v1/GetStocksSnapshot?app-key=012CD6DC888548268FFBF62BEEC051E9&symbols=AAPL;GOOG;TSLA;AMD;AMZN;MRNA;CRM;HD;MSFT;IBM;BABA;FB;NVDA;NFLX;BAC;OIL;USD"
       )
       .then((res) => setvalues(res.data.data.values));
   };
