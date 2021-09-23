@@ -8,7 +8,7 @@ import {
   Image,
   BackHandler,
 } from "react-native";
-import { Route } from "react-router-native";
+// import { Route } from "react-router-native";
 export default ({ history }) => {
   const [text, settext] = useState("");
   useEffect(() => {
@@ -50,6 +50,8 @@ const styles = StyleSheet.create({
   input: {
    borderWidth:0.5,
     padding: 5,
+    display:"flex",
+    justifyContent:"space-around",
     width: "88%",
     marginHorizontal:5,
     borderColor:"white",

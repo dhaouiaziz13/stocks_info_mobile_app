@@ -13,6 +13,7 @@ import {
   ActivityIndicator,
   Linking,
 } from "react-native";
+import { apiurl } from "../vars";
 import * as Font from "expo-font";
 import AppLoading from "expo-app-loading";
 import { Grid, LineChart, XAxis, YAxis } from "react-native-svg-charts";
@@ -60,8 +61,8 @@ export default ({ history, match }) => {
     );
 
     axios
-      .get(
-        `https://api.stockdio.com/data/financial/prices/v1/GetHistoricalPrices?app-key=012CD6DC888548268FFBF62BEEC051E9&symbol=${id}&from=2020-08-23&to=2021-08-23`
+      .post(
+        apiurl+"/stocks/history",{id:id}
       )
       .then((res) => {
         // let val = [];
@@ -76,9 +77,9 @@ export default ({ history, match }) => {
     try {
     } catch (error) {}
     axios
-      .get(
-        `https://mboum.com/api/v1/ne/news/?symbol=${id}&apikey=82zpv9ylaJ2WA7z0eqlo9qQt2B28N1tAIugE1IuyIeAZE94q153IhOlghOL9`
-      )
+    .post(
+      apiurl+"/stocks/news",{id:id}
+    )
       .then((res) => {
         if (res) {
           return setinfo(res.data.item);
@@ -86,9 +87,9 @@ export default ({ history, match }) => {
         console.log("therdet");
       });
     axios
-      .get(
-        `https://api.stockdio.com/data/financial/prices/v1/GetStocksSnapshot?app-key=012CD6DC888548268FFBF62BEEC051E9&symbols=${id}`
-      )
+    .post(
+      apiurl+"/stocks/data",{id:id}
+    )
       .then((res) => {
         setvalues(res.data.data.values[0]);
         // console.log(values[8]);
